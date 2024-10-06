@@ -1,10 +1,9 @@
-                import {products} from"../html/products.js";
-                import {addToCart, } from"../html/cart.js";
+import { products } from '../html/products.js'
+import { addToCart } from '../html/cart.js'
 
-
-                let productsHTML="";
-                products.forEach(x => {
-                productsHTML+=`
+let productsHTML = ''
+products.forEach(x => {
+  productsHTML += `
                     <div class=productParent><div class="products" data-product-id="${x.id}">
 
                     <div class="image">
@@ -29,27 +28,24 @@
                     </div>
                 </div>
                 </div>`
-                });
-                document.querySelector(".totalHTML").innerHTML=productsHTML;
+})
+document.querySelector('.totalHTML').innerHTML = productsHTML
 
+const buttons = document.querySelectorAll('.addtocart')
 
+buttons.forEach(btn => {
+  btn.addEventListener('click', e => {
+    addToCart(e)
 
-                const buttons = document.querySelectorAll('.addtocart');
+    //for cart Quantity
+    const selectElement = e.target.closest('.content').querySelector('.select')
+    let selectedValue = Number(selectElement.value)
+    cartMath(selectedValue)
+  })
+})
 
-                buttons.forEach(btn => {
-                    btn.addEventListener("click", (e) => {
-
-                        addToCart(e);
-                        
-                        //for cart Quantity 
-                        const selectElement = e.target.closest('.content').querySelector('.select');
-                        let selectedValue = Number(selectElement.value);
-                        cartMath(selectedValue);
-                    });
-                });
-
-                let cartQuantity=0;
-                export function cartMath(x){
-                cartQuantity+=x;
-                document.getElementById("cartQuantity").innerHTML=cartQuantity;
-                };
+let cartQuantity = 0
+export function cartMath (x) {
+  cartQuantity += x
+  document.getElementById('cartQuantity').innerHTML = cartQuantity
+}
