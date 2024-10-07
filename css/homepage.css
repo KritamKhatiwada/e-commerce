@@ -28,6 +28,30 @@ body {
   display: flex;
 }
 
+#filteroverlay {
+  display: block;
+  position: fixed;
+  width: 40%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(209, 209, 209);
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+}
+
+.filter_item {
+  display: flex;
+  padding: 0.4rem;
+}
+.filterName {
+  margin-left: 10px;
+}
+#winter:hover,
+#summer:hover {
+  cursor: pointer;
+}
 .products {
   display: flex;
   flex-direction: column;
