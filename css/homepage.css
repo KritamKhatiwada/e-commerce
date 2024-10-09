@@ -29,7 +29,7 @@ body {
 }
 
 #filteroverlay {
-  display: block;
+  display: none;
   position: fixed;
   width: 40%;
   top: 0;
@@ -41,11 +41,8 @@ body {
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
 }
 
-.filter_item {
-  display: flex;
-  padding: 0.4rem;
-}
 .filterName {
+  margin-top: 20px;
   margin-left: 10px;
 }
 #winter:hover,

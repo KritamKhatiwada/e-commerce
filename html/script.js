@@ -49,3 +49,12 @@ export function cartMath (x) {
   cartQuantity += x
   document.getElementById('cartQuantity').innerHTML = cartQuantity
 }
+const done = document.querySelector('.done')
+const filter = document.querySelector('.filter')
+const filterOverlay = document.querySelector('#filteroverlay')
+filter.addEventListener('click', () => {
+  filterOverlay.style.display = 'block'
+})
+done.addEventListener('click', () => {
+  filterOverlay.style.display = 'none'
+})
