@@ -49,3 +49,6 @@ export function cartMath (x) {
   cartQuantity += x
   document.getElementById('cartQuantity').innerHTML = cartQuantity
 }
+
+const today = dayjs.format('YYYY-MM-DD')
+console.log(today)
