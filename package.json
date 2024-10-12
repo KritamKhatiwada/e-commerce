@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "dayjs": "^1.11.13"
+  },
+  "devDependencies": {
+    "jasmine": "^5.3.1"
   }
 }
