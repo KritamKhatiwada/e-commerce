@@ -49,3 +49,9 @@ export function cartMath (x) {
   cartQuantity += x
   document.getElementById('cartQuantity').innerHTML = cartQuantity
 }
+
+const date = new Date()
+var year = date.getFullYear()
+var day = date.getDate()
+var month = date.getMonth() + 1
+console.log(year + '/' + day + '/' + month)
