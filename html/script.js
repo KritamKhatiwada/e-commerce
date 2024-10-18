@@ -1,5 +1,6 @@
 import { products } from '../html/products.js'
-import { addToCart } from '../html/cart.js'
+import { cart } from '../html/cart-oop.js'
+import { cartItems } from '../html/cart-oop.js'
 
 let productsHTML = ''
 products.forEach(x => {
@@ -35,7 +36,7 @@ const buttons = document.querySelectorAll('.addtocart')
 
 buttons.forEach(btn => {
   btn.addEventListener('click', e => {
-    addToCart(e)
+    cart.addToCart(e)
 
     //for cart Quantity
     const selectElement = e.target.closest('.content').querySelector('.select')
@@ -47,5 +48,6 @@ buttons.forEach(btn => {
 let cartQuantity = 0
 export function cartMath (x) {
   cartQuantity += x
+  // console.log(cartQuantity)
   document.getElementById('cartQuantity').innerHTML = cartQuantity
 }
