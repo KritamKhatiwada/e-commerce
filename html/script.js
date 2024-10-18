@@ -51,12 +51,3 @@ export function cartMath (x) {
   // console.log(cartQuantity)
   document.getElementById('cartQuantity').innerHTML = cartQuantity
 }
-
-const date = new Date()
-var year = date.getFullYear()
-var day = date.getDate()
-var month = date.getMonth() + 1
-
-console.log(year + '/' + day + '/' + month)
-const todayDate = year + '/' + month + '/' + day
-document.querySelector('.date').innerHTML = todayDate
