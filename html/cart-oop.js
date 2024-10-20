@@ -1,10 +1,10 @@
-import { products } from '../html/products.js'
-export let cartItems = JSON.parse(localStorage.getItem('cart-oop')) || []
+import { products } from "../html/products.js";
+export let cartItems = JSON.parse(localStorage.getItem("cart-oop")) || [];
 
 export const cart = {
-  renderCart () {
-    let cartHTML = ''
-    cartItems.forEach(x => {
+  renderCart() {
+    let cartHTML = "";
+    cartItems.forEach((x) => {
       cartHTML += `<div class="product" data-product-id="${x.id}">
                 <div class="image">
                 <img class="img" src="${x.image}" alt="Product Image">
@@ -17,46 +17,46 @@ export const cart = {
 
                     <br><br>
                 </div>
-                </div>`
-    })
-    document.querySelector('.totalHTML').innerHTML = cartHTML
+                </div>`;
+    });
+    document.querySelector(".totalHTML").innerHTML = cartHTML;
   },
 
-  addToCart (event) {
+  addToCart(event) {
     const ProductId = event.target
-      .closest('.productParent')
-      .querySelector('.products').dataset.productId
-    const Product = products.find(product => product.id === ProductId)
+      .closest(".productParent")
+      .querySelector(".products").dataset.productId;
+    const Product = products.find((product) => product.id === ProductId);
 
     const dropDownElement = event.target
-      .closest('.content')
-      .querySelector('.select')
-    let selectedValue = Number(dropDownElement.value)
+      .closest(".content")
+      .querySelector(".select");
+    let selectedValue = Number(dropDownElement.value);
 
-    const matchingProduct = cartItems.find(x => x.id === Product.id)
+    const matchingProduct = cartItems.find((x) => x.id === Product.id);
     if (matchingProduct) {
-      matchingProduct.quantity += selectedValue
+      matchingProduct.quantity += selectedValue;
     } else if (Product) {
-      Product.quantity = selectedValue
-      cartItems.push(Product)
-      console.log('pushed')
+      Product.quantity = selectedValue;
+      cartItems.push(Product);
+      console.log("pushed");
     }
-    localStorage.setItem('cart-oop', JSON.stringify(cartItems))
+    localStorage.setItem("cart-oop", JSON.stringify(cartItems));
   },
 
-  removeFromCart () {
-    const deleteBTNs = document.querySelectorAll('.delete')
-    deleteBTNs.forEach(x => {
-      x.addEventListener('click', e => {
-        const nearProduct = e.target.closest('.product')
-        const ProductId = nearProduct.dataset.productId
-        const Filtercart = cartItems.filter(x => x.id !== ProductId)
-        localStorage.setItem('cart-oop', JSON.stringify(Filtercart))
-        nearProduct.remove()
-        cartItems = Filtercart
-      })
-    })
-  }
-}
-cart.renderCart()
-cart.removeFromCart()
+  removeFromCart() {
+    const deleteBTNs = document.querySelectorAll(".delete");
+    deleteBTNs.forEach((x) => {
+      x.addEventListener("click", (e) => {
+        const nearProduct = e.target.closest(".product");
+        const ProductId = nearProduct.dataset.productId;
+        const Filtercart = cartItems.filter((x) => x.id !== ProductId);
+        localStorage.setItem("cart-oop", JSON.stringify(Filtercart));
+        nearProduct.remove();
+        cartItems = Filtercart;
+      });
+    });
+  },
+};
+cart.renderCart();
+cart.removeFromCart();

@@ -1,9 +1,9 @@
-import { products } from '../html/products.js'
-import { cart } from '../html/cart-oop.js'
-import { cartItems } from '../html/cart-oop.js'
+import { products } from "../html/products.js";
+import { cart } from "../html/cart-oop.js";
+import { cartItems } from "../html/cart-oop.js";
 
-let productsHTML = ''
-products.forEach(x => {
+let productsHTML = "";
+products.forEach((x) => {
   productsHTML += `
                     <div class=productParent><div class="products" data-product-id="${x.id}">
 
@@ -28,26 +28,36 @@ products.forEach(x => {
                     <button class="addtocart" >Add To Cart</button>
                     </div>
                 </div>
-                </div>`
-})
-document.querySelector('.totalHTML').innerHTML = productsHTML
+                </div>`;
+});
+document.querySelector(".totalHTML").innerHTML = productsHTML;
 
-const buttons = document.querySelectorAll('.addtocart')
+const buttons = document.querySelectorAll(".addtocart");
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', e => {
-    cart.addToCart(e)
+buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    cart.addToCart(e);
 
     //for cart Quantity
-    const selectElement = e.target.closest('.content').querySelector('.select')
-    let selectedValue = Number(selectElement.value)
-    cartMath(selectedValue)
-  })
-})
+    const selectElement = e.target.closest(".content").querySelector(".select");
+    let selectedValue = Number(selectElement.value);
+    cartMath(selectedValue);
+  });
+});
 
-let cartQuantity = 0
-export function cartMath (x) {
-  cartQuantity += x
+let cartQuantity = 0;
+export function cartMath(x) {
+  cartQuantity += x;
   // console.log(cartQuantity)
-  document.getElementById('cartQuantity').innerHTML = cartQuantity
+  document.getElementById("cartQuantity").innerHTML = cartQuantity;
 }
+
+ const filterButton=document.querySelector(".filter");
+ const DoneButton=document.querySelector(".Done");
+
+filterButton.addEventListener("click",()=>{
+  document.querySelector(".filterpage").style.display="block";
+})
+DoneButton.addEventListener("click",()=>{
+  document.querySelector(".filterpage").style.display="none";
+})

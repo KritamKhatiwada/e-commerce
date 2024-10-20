@@ -5,61 +5,95 @@
   margin: 0;
 }
 
-body{
-    width: 100%;
-    height: 500vh;
-    display: flex;
-    flex-direction: column;
+body {
+  width: 100%;
+  height: 500vh;
 }
-.nav{
-   
-    background-color: gray;
-    height: 10vh;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: sticky;
-    padding: 16px;
-    margin-bottom: 48px;
-    top: 0;
-}
-.totalHTML{
-    display: flex;
-}
-.products{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
-    height: 400px;
-    border: 1px black solid;
-    text-align: center;
-    margin: 0.1em;
+.nav {
+  background-color: gray;
+  height: 10vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  padding: 16px;
+  margin-bottom: 48px;
+  top: 0;
 }
 
-
-.image{
-    padding: 2rem;
-    max-width: 100%;
-    height: 50%;
-}
-.img{
-    width: 100%;
-}
-.content{
-    padding: 1rem;
-    height: 50%;
+.filterpage {
+  position: fixed;
+  display: none;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  background-color: rgb(219, 219, 219);
+  padding: 30px;
 }
 
-.addtocart{
+.filtercontent {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  padding: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  }
+  .filtercontent:hover{
+    cursor: pointer;
+  }
+  .Done{
     margin: 16px;
     padding: 16px 24px;
     background-color: orange;
     border: 0px solid black;
-    border-radius: 16px;
-}
-.addtocart:hover{
+    border-radius: 4px;
+  }
+  .Done:hover{
     cursor: pointer;
-    opacity: 0.8;
+    background-color: rgb(207, 138, 10);
+  }
+.totalHTML {
+  display: flex;
+}
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 400px;
+  border: 1px black solid;
+  text-align: center;
+  margin: 0.1em;
+}
+
+.sort:hover, .filter:hover {
+  cursor: pointer;
+}
+
+.image {
+  padding: 2rem;
+  max-width: 100%;
+  height: 50%;
+}
+.img {
+  width: 100%;
+}
+.content {
+  padding: 1rem;
+  height: 50%;
+}
+
+.addtocart {
+  margin: 16px;
+  padding: 16px 24px;
+  background-color: orange;
+  border: 0px solid black;
+  border-radius: 16px;
+}
+.addtocart:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
