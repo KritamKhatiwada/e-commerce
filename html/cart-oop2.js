@@ -64,4 +64,3 @@ export const cart = {
 //  const bussinessCart= Cart('bussiness-cart')
 cart.renderCart();
 cart.removeFromCart();
-

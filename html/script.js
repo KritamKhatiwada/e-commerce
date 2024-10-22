@@ -1,7 +1,6 @@
 import { products } from "../html/products.js";
 import { cart } from "./cart-oop.js";
 
-
 let productsHTML = "";
 products.forEach((x) => {
   productsHTML += `
@@ -32,12 +31,12 @@ products.forEach((x) => {
 });
 document.querySelector(".totalHTML").innerHTML = productsHTML;
 
-const buttons = document.querySelectorAll(".addtocart");
-buttons.forEach((btn) => {
+const addToCartButtons = document.querySelectorAll(".addtocart");
+addToCartButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    console.log
+    console.log;
     cart.addToCart(e);
-    
+
     //for cart Quantity
     const selectElement = e.target.closest(".content").querySelector(".select");
     let selectedValue = Number(selectElement.value);
@@ -45,18 +44,19 @@ buttons.forEach((btn) => {
   });
 });
 
+
 let cartQuantity = 0;
 export function cartMath(x) {
   cartQuantity += x;
   // console.log(cartQuantity)
   document.getElementById("cartQuantity").innerHTML = cartQuantity;
 }
-const filterButton=document.querySelector(".filter");
-const DoneButton=document.querySelector(".Done");
+const filterButton = document.querySelector(".filter");
+const DoneButton = document.querySelector(".Done");
 
-filterButton.addEventListener("click",()=>{
-  document.querySelector(".filterpage").style.display="block";
-})
-DoneButton.addEventListener("click",()=>{
-  document.querySelector(".filterpage").style.display="none";
-})
+filterButton.addEventListener("click", () => {
+  document.querySelector(".filterpage").style.display = "block";
+});
+DoneButton.addEventListener("click", () => {
+  document.querySelector(".filterpage").style.display = "none";
+});
