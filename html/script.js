@@ -1,5 +1,5 @@
 import { products } from "../html/products.js";
-import { cart } from "./cart-oop.js";
+import { cart } from "./cart-class.js";
 
 let productsHTML = "";
 products.forEach((x) => {
@@ -43,7 +43,6 @@ addToCartButtons.forEach((btn) => {
     cartMath(selectedValue);
   });
 });
-
 
 let cartQuantity = 0;
 export function cartMath(x) {

@@ -2,7 +2,7 @@ import { products } from "../html/products.js";
 
 function Cart(LocalStorageKey) {
   const cart = {
-    cartItems : JSON.parse(localStorage.getItem(LocalStorageKey)) || [
+    cartItems: JSON.parse(localStorage.getItem(LocalStorageKey)) || [
       {
         id: "1",
         name: "shoe",
@@ -12,7 +12,6 @@ function Cart(LocalStorageKey) {
       },
     ],
     loadFromStorage() {
-
       let cartHTML = "";
       this.cartItems.forEach((x) => {
         cartHTML += `<div class="product" data-product-id="${x.id}">
@@ -31,8 +30,8 @@ function Cart(LocalStorageKey) {
       });
       document.querySelector(".totalHTML").innerHTML = cartHTML;
     },
-    saveToStorage(){
-      localStorage.setItem(LocalStorageKey,JSON.stringify(this.cartItems))
+    saveToStorage() {
+      localStorage.setItem(LocalStorageKey, JSON.stringify(this.cartItems));
     },
 
     addToCart(event) {
@@ -46,7 +45,6 @@ function Cart(LocalStorageKey) {
         .querySelector(".select");
       let selectedValue = Number(dropDownElement.value);
 
-
       const matchingProduct = this.cartItems.find((x) => x.id === Product.id);
       if (matchingProduct) {
         matchingProduct.quantity += selectedValue;
@@ -55,9 +53,8 @@ function Cart(LocalStorageKey) {
         this.cartItems.push(Product);
         console.log("pushed");
       }
-      
-      this.saveToStorage();
 
+      this.saveToStorage();
     },
 
     removeFromCart() {
@@ -78,14 +75,13 @@ function Cart(LocalStorageKey) {
 }
 
 export const cart = Cart("cart-oop");
-export const bussinessCart=Cart("bussiness-cart")
+export const bussinessCart = Cart("bussiness-cart");
 
 cart.loadFromStorage();
 cart.removeFromCart();
 
 bussinessCart.loadFromStorage();
 bussinessCart.removeFromCart();
-
 
 console.log(cart);
 console.log(bussinessCart);
