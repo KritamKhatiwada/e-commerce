@@ -7,8 +7,9 @@
 
 body {
   width: 100%;
-  height: 500vh;
+  height: auto;
 }
+
 .nav {
   background-color: gray;
   height: 10vh;
@@ -16,57 +17,38 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: sticky;
+  position: block;
   padding: 16px;
   margin-bottom: 48px;
   top: 0;
 }
 
-.filterpage {
-  position: fixed;
-  display: none;
-  width: 40%;
-  height: 100%;
-  top: 0;
-  background-color: rgb(219, 219, 219);
-  padding: 30px;
-}
-
-.filtercontent {
-  display: flex;
-  flex-direction: row;
-  font-size: large;
-  padding: 10px;
-  align-items: center;
-  margin-bottom: 20px;
-  border: 1px solid black;
-}
-.filtercontent:hover {
-  cursor: pointer;
-}
-.Done {
-  margin: 16px;
-  padding: 16px 24px;
-  background-color: orange;
-  border: 0px solid black;
-  border-radius: 4px;
-}
-.Done:hover {
-  cursor: pointer;
-  background-color: rgb(207, 138, 10);
-}
 .totalHTML {
   display: flex;
+  flex-wrap: wrap;
 }
 .products {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   width: 200px;
   height: 400px;
   border: 1px black solid;
+
   text-align: center;
-  margin: 0.1em;
+  margin: 0.4em;
+  position: relative;
+top: 0;
+transition: top ease 0.5s;
+}
+.products:hover{
+  background-color: rgb(245, 245, 245);
+  position: relative;
+
+  top: -3px;
+  transition: top ease-out 0.5s;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .sort:hover, .filter:hover {
@@ -77,6 +59,7 @@ body {
   padding: 2rem;
   max-width: 100%;
   height: 50%;
+  overflow: hidden;
 }
 .img {
   width: 100%;
@@ -88,6 +71,7 @@ body {
 
 .addtocart {
   margin: 16px;
+
   padding: 16px 24px;
   background-color: orange;
   border: 0px solid black;
@@ -95,5 +79,16 @@ body {
 }
 .addtocart:hover {
   cursor: pointer;
-  opacity: 0.8;
+  background-color: rgb(195, 128, 4);
+}
+.filteritem{
+  padding:12px 24px;
+  margin: 10px;
+  border-radius:20px;
+  border:1px solid orange;
+  background-color: white;
+}
+.filteritem:hover{
+  cursor: pointer;
+background-color: orange;
 }

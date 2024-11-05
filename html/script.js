@@ -1,6 +1,7 @@
 import { products } from "../html/products.js";
 import { cart } from "./cart-class.js";
 
+
 let productsHTML = "";
 products.forEach((x) => {
   productsHTML += `
@@ -11,7 +12,7 @@ products.forEach((x) => {
   </div>
   <div class="content">
   <div class="productName">${x.name}</div>
-  <div class="productPrice">Rs.${x.price}</div>
+  <div class="productPrice">Rs.${x.priceCents}</div>
   <select name="number"  class="select" >
   <option value="1">1</option>
   <option value="2">2</option>
@@ -35,8 +36,7 @@ const addToCartButtons = document.querySelectorAll(".addtocart");
 addToCartButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     console.log;
-    cart.addToCart(e);
-
+    cart.addToCart(e); 
     //for cart Quantity
     const selectElement = e.target.closest(".content").querySelector(".select");
     let selectedValue = Number(selectElement.value);
@@ -44,18 +44,18 @@ addToCartButtons.forEach((btn) => {
   });
 });
 
+
 let cartQuantity = 0;
 export function cartMath(x) {
   cartQuantity += x;
   // console.log(cartQuantity)
   document.getElementById("cartQuantity").innerHTML = cartQuantity;
 }
-const filterButton = document.querySelector(".filter");
-const DoneButton = document.querySelector(".Done");
 
-filterButton.addEventListener("click", () => {
-  document.querySelector(".filterpage").style.display = "block";
-});
-DoneButton.addEventListener("click", () => {
-  document.querySelector(".filterpage").style.display = "none";
-});
+const Mens= document.getElementById("Mens");
+
+Mens.addEventListener("click",()=>{
+  let FilterProducts=products.filter((x)=>x.keywords.includes("Mens"))
+  // products.length=0;
+  // products.push(...FilterProducts)
+})

@@ -7,7 +7,7 @@ class Cart {
       id: "1",
       name: "shoe",
       image: "images/products/knit-athletic-sneakers-gray.jpg",
-      price: 1200,
+      priceCents: 1200,
       quantity: 1,
     },
   ];
@@ -20,10 +20,12 @@ class Cart {
                   <img class="img" src="${x.image}" alt="Product Image">
                   </div>
                   <div class="content">
-                      <h2>${x.name}</h2>
-                      <p>Price:Rs.${x.price} </p>
+                      <div class="productName">${x.name}</div>
+                      <p>Price:Rs.${x.priceCents} </p>
                       <p>Quantity:<p id="quantity">${x.quantity}</p></p>
+                      <div class="buttons">
                       <button class="update">update</button><button class="delete">delete</button>
+                      </div>
   
                       <br><br>
                   </div>
@@ -64,8 +66,8 @@ class Cart {
         const nearProduct = e.target.closest(".product");
         const ProductId = nearProduct.dataset.productId;
         const Filtercart = this.cartItems.filter((x) => x.id !== ProductId);
-        nearProduct.remove();
         this.cartItems = Filtercart;
+        nearProduct.remove();
         this.saveToStorage();
       });
     });
@@ -78,8 +80,8 @@ export const bussinessCart = new Cart("cart-bussiness");
 cart.loadFromStorage();
 cart.removeFromCart();
 
-bussinessCart.loadFromStorage();
-bussinessCart.removeFromCart();
+// bussinessCart.loadFromStorage();
+// bussinessCart.removeFromCart();
 
-console.log(cart);
-console.log(bussinessCart);
+// console.log(cart);
+// console.log(bussinessCart);
