@@ -44,7 +44,6 @@ function addToCart(){
     const addToCartButtons = document.querySelectorAll(".addtocart");
   addToCartButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      console.log;
       cart.addToCart(e); 
 
       //for cart Quantity
@@ -56,7 +55,7 @@ function addToCart(){
 };
 
 let cartQuantity=0;
-function cartMath(x) {
+export function cartMath(x) {
   cartQuantity += x;
   document.getElementById("cartQuantity").innerHTML = cartQuantity;
 }
@@ -64,8 +63,6 @@ function filter(filterItemKey){
   const FilterItem=document.getElementById(filterItemKey);
   FilterItem.addEventListener("click",()=>{
     if(filterItemKey==="all"){
-
-      console.log(productsHTML)
       loadHTML();
       console.log("1")
     }
@@ -80,8 +77,8 @@ function filter(filterItemKey){
   }
   })
 }
-addToCart();
 loadHTML()
+addToCart();
 saveToStorage();
 filter("all")
 filter("kitchen");
