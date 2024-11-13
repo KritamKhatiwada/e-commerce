@@ -3,6 +3,7 @@ import { cart } from "./cart-class.js";
 
 let productItems= JSON.parse(localStorage.getItem("products")) 
 
+
 function loadHTML(){
   let productsHTML = "";
   products.forEach((x) => {
@@ -15,26 +16,15 @@ function loadHTML(){
     <div class="content">
     <div class="productName">${x.name}</div>
     <div class="productPrice">Rs.${x.priceCents}</div>
-    <select name="number"  class="select" >
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    </select>
+   <input type="number" id="quantity" class="select" value="1" min="1">
     <button class="addtocart" >Add To Cart</button>
     </div>
     </div>
     </div>`;
   });
   document.querySelector(".totalHTML").innerHTML = productsHTML;
-  
 }
+
 
 function saveToStorage(){
   localStorage.setItem("products", JSON.stringify(productItems));
@@ -59,30 +49,35 @@ export function cartMath(x) {
   cartQuantity += x;
   document.getElementById("cartQuantity").innerHTML = cartQuantity;
 }
+
 function filter(filterItemKey){
   const FilterItem=document.getElementById(filterItemKey);
-  FilterItem.addEventListener("click",()=>{
-    if(filterItemKey==="all"){
+  FilterItem.addEventListener("click",()=>{ 
+    if(filterItemKey){
+      const FilteredItem=products.filter(x=>x.keywords.includes(filterItemKey))
+      products.length=0
+      products.push(...FilteredItem)
+      saveToStorage();
       loadHTML();
-      console.log("1")
-    }
-    else {
-    const FilteredItem=products.filter(x=>x.keywords.includes(filterItemKey))
-    console.log(FilteredItem)
-    products.length=0
-    products.push(...FilteredItem)
-    saveToStorage();
-    loadHTML();
-    console.log("2")
+
+      // const FilterInfo=document.querySelector(".filterInfo");
+      // const closeButton=document.querySelector(".closeButton")
+      // closeButton.style.display="none"
+    // FilterInfo.innerHTML=filterItemKey+" "
+    //     closeButton.style.display="block"
+        //make the filterinfo carry the filter and when clicked on cross the filter os removed
+    // closeButton.addEventListener("click",()=>{
+    //   FilterInfo.innerHTML=""
+    // })
   }
   })
 }
+
 loadHTML()
 addToCart();
 saveToStorage();
-filter("all")
+
 filter("kitchen");
 filter("mens");
 filter("womens");
 filter("accessories");
-//made filter

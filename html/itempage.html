@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <link rel="stylesheet" href="../css/itempage.css">
+</head>
+<body>
+
+  <div class="nav">
+
+    <!-- Logo section -->
+     <div class="logo">
+      <a href="../html/homepage.html">
+      <img src="./images/amazon-logo-white.png" alt="">
+    </a>
+     </div>
+    <!-- Search Bar Section -->
+    <div class="search-container">
+      <form action="" class="search-bar">
+        <input type="search" name="search" pattern=".*\S.*" required>
+        <button class="search-btn" type="submit">
+          <span>Search</span>
+        </button>
+      </form>      
+        
+      </button>
+    </div>
+
+    <!-- Cart Section (right-aligned) -->
+    <div class="cart-container">
+      <a href="../html/cartpage.html">
+        Cart:
+        <span id="cartQuantity" class="cart-badge">0</span> <!-- Cart quantity displayed -->
+      </a>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <!-- Left Part (Image) -->
+    <div class="left-part">
+      <img src="./images/products/backpack.jpg" alt="Product Image" class="product-image">
+    </div>
+
+    <!-- Middle Part (Title, Price, Buttons, etc.) -->
+    <div class="middle-part">
+      <div class="product-title-rating">
+        <h1 class="product-title">Product Title</h1>
+        <div class="ratings">
+          <span>⭐⭐⭐⭐⭐ (150 reviews)</span>
+        </div>
+      </div>
+
+      <div class="price">₹ 2,500</div>
+      
+      <div class="quantity">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" value="1" min="1">
+      </div>
+
+      <div class="buttons">
+        <button class="addToCart">Add to Cart</button>
+        <button class="buyNow">Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Right Part (Location, Delivery, Coupons, etc.) -->
+    <div class="right-part">
+      <div class="location">
+        <label for="location">Location:</label>
+        <input type="text" id="location" placeholder="Enter your pincode">
+      </div>
+
+      <div class="delivery-charge">
+        <span>Delivery Charge: ₹ 50</span>
+      </div>
+
+      <div class="promo-code">
+        <label for="promo-code">Coupon/Promo Code:</label>
+        <input type="text" id="promo-code" placeholder="Enter code">
+      </div>
+
+      <div class="warranty">
+        <p>Warranty: 1 Year Manufacturer Warranty</p>
+      </div>
+
+      <div class="chat-with-store">
+        <button>Chat with Store</button>
+      </div>
+
+      <div class="other-items">
+        <button>See Other Items of This Store</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Info Section -->
+  <div class="product-info">
+    <h3>Product Information</h3>
+    <p>This is a detailed description of the product. It highlights all the features and benefits of the product. Customers can read this to understand what they are purchasing.</p>
+  </div>
+
+  <!-- Reviews and Questions -->
+  <div class="reviews-questions">
+    <div class="reviews">
+      <h3>Customer Reviews</h3>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Great product! Worth the money."</p>
+      <p>"Good quality, delivery was on time."</p>
+    </div>
+    
+    <div class="questions">
+      <h3>Questions & Answers</h3>
+      <p>Q: Is this product available in size M?</p>
+      <p>A: Yes, it is available in size M.</p>
+    </div>
+  </div>
+
+</body>
+<script src="./itempage.js" type="module"></script>
+</html>
+  

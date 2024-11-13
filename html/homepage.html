@@ -9,25 +9,49 @@
   </head>
   <body>
     <div class="nav">
-      <a href="../html/cartpage.html">Cart</a>
-      <span id="cartQuantity">00</span>
+
+      <!-- Logo section -->
+       <div class="logo">
+        <a href="../html/homepage.html">
+        <img src="./images/amazon-logo-white.png" alt="">
+      </a>
+       </div>
+      <!-- Search Bar Section -->
+      <div class="search-container">
+        <form action="" class="search-bar">
+          <input type="search" name="search" pattern=".*\S.*" required>
+          <button class="search-btn" type="submit">
+            <span>Search</span>
+          </button>
+        </form>      
+          
+        </button>
+      </div>
+
+      <!-- Cart Section (right-aligned) -->
+      <div class="cart-container">
+        <a href="../html/cartpage.html">
+          Cart:
+          <span id="cartQuantity" class="cart-badge">0</span> <!-- Cart quantity displayed -->
+        </a>
+      </div>
     </div>
+
     <div class="filter">
-      <button id="all" class="filteritem">All</button>
+     <a href="./homepage.html"> <button id="all" class="filteritem">All</button></a>
       <button id="mens" class="filteritem">Mens</button>
       <button id="womens" class="filteritem">Womens</button>
       <button id="accessories" class="filteritem">Accessories</button>
       <button id="kitchen" class="filteritem">Kitchen</button>
+      <span class="filterName">Filtered By: <span class="filterInfo"></span> <button class="closeButton">x</button></span>
     </div>
     <div class="sortpage">
-      <!-- price high to low and low to high -->
+      <!-- Sorting options here (e.g., price high to low, etc.) -->
     </div>
     <div class="totalHTML">
-      <!-- html that is now in script.js-->
+      <!-- HTML content dynamically loaded by script.js-->
     </div>
-  </body>
 
-  <script src="script.js" type="module"></script>
-  <script src="products.js" type="module"></script>
-  <script src="cart-class.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+  </body>
 </html>

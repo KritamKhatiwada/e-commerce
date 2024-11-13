@@ -16,18 +16,20 @@ class Cart {
     let cartHTML = "";
     this.cartItems.forEach((x) => {
       cartHTML += `<div class="product" data-product-id="${x.id}">
+      <button class="delete">Delete</button>
                   <div class="image">
                   <img class="img" src="${x.image}" alt="Product Image">
                   </div>
                   <div class="content">
-                      <div class="productName">${x.name}</div>
-                      <p>Price:Rs.${x.priceCents} </p>
-                      <p>Quantity:<p id="quantity">${x.quantity}</p></p>
-                      <div class="buttons">
-                      <button class="update">update</button><button class="delete">delete</button>
-                      </div>
-  
-                      <br><br>
+                  <div class="productName">${x.name}</div>
+                  <p class="price">Price: Rs.${x.priceCents} </p>
+                  <p>Quantity:<span id="quantity" class="quantity"> ${x.quantity}~</span>
+                  <button class="update">update</button></p>
+                  <div class="reviews">
+                  
+                    <svg width="16" height="16"  fill="yellow"/></svg>
+                    <span>⭐⭐⭐⭐☆</span> <p>(20 reviews)</p>
+                  </div>
                   </div>
                   </div>`;
     });
@@ -72,6 +74,16 @@ class Cart {
       });
     });
   }
+  updateCartQuantity() {
+    const updateBTNs = document.querySelectorAll(".update");
+    updateBTNs.forEach((x) => {
+      x.addEventListener("click", (e) => {
+        console.log("update clicekd")
+        window.location.href="./itempage.html" 
+
+      });
+    });
+  }
 }
 
 export const cart = new Cart("cart-oop");
@@ -79,6 +91,7 @@ export const bussinessCart = new Cart("cart-bussiness");
 
 cart.loadFromStorage();
 cart.removeFromCart();
+cart.updateCartQuantity();
 
 // bussinessCart.loadFromStorage();
 // bussinessCart.removeFromCart();

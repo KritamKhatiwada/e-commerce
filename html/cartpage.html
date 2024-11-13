@@ -7,17 +7,62 @@
     <title>Add to Cart</title>
   </head>
   <body>
-    <div class="totalHTML"></div>
+        <div class="nav">
 
-    <div class="cart-summary">
-      <h2>Cart Summary</h2>
-      <p>Total Quantity: <span id="total-quantity">0</span></p>
-      <p>Total Sum: Rs. <span id="total-sum">0</span></p>
-      <p>Delivery Charge: Rs. 250</p>
-      <p>Dashain Offer: Rs. -50</p>
-      <h3>Total Payable: Rs. <span id="total-payable">0</span></h3>
-      <button class="buynow">Buy Now</button>
+      <!-- Logo section -->
+       <div class="logo">
+        <a href="../html/homepage.html">
+        <img src="./images/amazon-logo-white.png" alt="">
+      </a>
+       </div>
+      <!-- Search Bar Section -->
+      <div class="search-container">
+        <form action="" class="search-bar">
+          <input type="search" name="search" pattern=".*\S.*" required>
+          <button class="search-btn" type="submit">
+            <span>Search</span>
+          </button>
+        </form>      
+          
+        </button>
+      </div>
+
+      <!-- Cart Section (right-aligned) -->
+      <div class="cart">
+        <a href="../html/cartpage.html">
+          Cart:
+          <span id="cartQuantity" class="cart-badge">0</span> <!-- Cart quantity displayed -->
+        </a>
+      </div>
     </div>
+    <div class="cart-container">
+      <!-- Cart Items will go here -->
+      <div class="totalHTML"></div>
+
+      <!-- Cart Summary Section -->
+      <div class="cart-summary">
+        <h2>Cart Summary</h2>
+        <div class="summary-details">
+          <p>Total Quantity: <span id="total-quantity">0</span></p>
+          <p>Total Sum: Rs. <span id="total-sum">0</span></p>
+          <p>Delivery Charge: Rs. 250</p>
+          <p>Dashain Offer: Rs. -50</p>
+          <h3>Total Payable: Rs. <span id="total-payable">0</span></h3>
+        </div>
+        
+        <!-- Address and Promo Code -->
+        <div class="address-promo">
+          <label for="address">Shipping Address:</label>
+          <input type="text" id="address" placeholder="Enter your address">
+          
+          <label for="promo">Promo Code:</label>
+          <input type="text" id="promo" placeholder="Enter promo code">
+        </div>
+
+        <button class="buynow">Buy All</button>
+      </div>
+    </div>
+
+    <script src="cart-class.js" type="module"></script>
   </body>
-  <script src="cart-class.js" type="module"></script>
 </html>
