@@ -6,23 +6,25 @@
 }
 
 body {
-  width: 98.9vw;
+  width: 100vw;
   height: auto;
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
 .nav {
-  top:0;
+  top: 0;
   position: sticky;
   margin: 0;
-  background-color: rgb(44, 44, 44); 
-  height: 10vh; 
+  background-color: rgb(44, 44, 44);
+  height: 10vh;
+  width: 101vw;
   display: flex;
   justify-items: center;
   justify-content: space-between;
   align-items: center;
-  padding:20px;
-  box-shadow: 0 4px 8px rgba(36, 36, 36, 0.1); 
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(36, 36, 36, 0.1);
 }
 
 .nav a {
@@ -31,59 +33,53 @@ body {
   font-weight: bold;
 }
 
-.cart-badge {
-    margin-left: 3px;
-    color: orange;
-  }
-
 .search-bar {
   display: flex;
 }
 .search-bar input,
 .search-btn {
-  width: 40em;
+  width: 30em;
   height: 3em;
   background: #fff;
   border-radius: 0.375em 0 0 0.375em;
 }
 
 /* Active state */
-.search-btn{
+.search-btn {
   background: orange;
   border-radius: 0 0.375em 0.375em 0;
   width: 100px;
 }
-.search-btn:hover{
+.search-btn:hover {
   cursor: pointer;
 }
 
 .logo:hover {
   cursor: pointer;
 }
-.logo img{
+.logo img {
   width: auto;
   height: 40px;
 }
 
-.cart-container{
-  margin: 3rem 0 0 6rem;
+.cart-container {
+  margin: 1rem 0 0 1em;
   display: flex;
   width: 100%;
-  max-width: 1200px;
-  justify-content: space-between;
+  justify-content: c;
   gap: 20px;
 }
 
 .totalHTML {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  width: 75%; /* 75% of the width for products */
+  gap: 4px;
+  width: 70%; /* 75% of the width for products */
 }
 
 .product {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   justify-content: space-between;
   width: 48%;
   max-height: 250px;
@@ -91,7 +87,6 @@ body {
   border-radius: 8px;
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 0 0 20px 0;
   overflow: hidden;
 }
 
@@ -102,14 +97,14 @@ body {
   color: #333;
 }
 .image {
-  width: 70%; /* Take 40% of the width */
+  width: 80%; /* Take 40% of the width */
 }
 
 .img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 0.5em;
+  padding: 0.4em;
 }
 
 .reviews {
@@ -122,12 +117,12 @@ body {
 }
 
 .reviews svg {
-  margin-right:2px;
+  margin-right: 2px;
   fill: yellow;
 }
 
 .content {
-  padding: 15px;
+  padding: 10px;
   width: 60%;
 }
 
@@ -142,7 +137,7 @@ body {
   font-size: 18px; /* Larger font size */
   font-weight: bold;
 }
-.delete{
+.delete {
   color: black;
   border: none;
   border-radius: 5px;
@@ -186,8 +181,7 @@ body {
 
 .cart-summary {
   background-color: white;
-  padding: 20px;
-  width: 300px; /* Take 25% of the container */
+  padding: 10px; /* Take 25% of the container */
   border-radius: 8px;
   border: 1px solid #ccc;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -230,7 +224,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .nav{
+  .nav {
     display: none;
   }
   .cart-container {

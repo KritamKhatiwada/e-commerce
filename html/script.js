@@ -1,12 +1,11 @@
-import { products } from "../html/products.js";
-import { cart } from "./cart-class.js";
+import { products } from '../html/products.js'
+import { cart } from './cart-class.js'
 
-let productItems= JSON.parse(localStorage.getItem("products")) 
+let productItems = JSON.parse(localStorage.getItem('products'))
 
-
-function loadHTML(){
-  let productsHTML = "";
-  products.forEach((x) => {
+function loadHTML () {
+  let productsHTML = ''
+  products.forEach(x => {
     productsHTML += `
     <div class=productParent><div class="products" data-product-id="${x.id}">
     
@@ -20,64 +19,66 @@ function loadHTML(){
     <button class="addtocart" >Add To Cart</button>
     </div>
     </div>
-    </div>`;
-  });
-  document.querySelector(".totalHTML").innerHTML = productsHTML;
+    </div>`
+  })
+  document.querySelector('.totalHTML').innerHTML = productsHTML
 }
 
-
-function saveToStorage(){
-  localStorage.setItem("products", JSON.stringify(productItems));
+function saveToStorage () {
+  localStorage.setItem('products', JSON.stringify(productItems))
 }
 
-function addToCart(){
-    const addToCartButtons = document.querySelectorAll(".addtocart");
-  addToCartButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      cart.addToCart(e); 
+function addToCart () {
+  const addToCartButtons = document.querySelectorAll('.addtocart')
+  addToCartButtons.forEach(btn => {
+    btn.addEventListener('click', e => {
+      cart.addToCart(e)
 
       //for cart Quantity
-      const selectElement = e.target.closest(".content").querySelector(".select");
-      let selectedValue = Number(selectElement.value);
-      cartMath(selectedValue);
-    });
-  });
-};
-
-let cartQuantity=0;
-export function cartMath(x) {
-  cartQuantity += x;
-  document.getElementById("cartQuantity").innerHTML = cartQuantity;
+      const selectElement = e.target
+        .closest('.content')
+        .querySelector('.select')
+      let selectedValue = Number(selectElement.value)
+      cartMath(selectedValue)
+    })
+  })
+}
+let cartQuantity = Number(localStorage.getItem('cart-quantity'))
+function cartMath (x) {
+  cartQuantity += x
+  document.getElementById('cartQuantity').innerHTML = cartQuantity
 }
 
-function filter(filterItemKey){
-  const FilterItem=document.getElementById(filterItemKey);
-  FilterItem.addEventListener("click",()=>{ 
-    if(filterItemKey){
-      const FilteredItem=products.filter(x=>x.keywords.includes(filterItemKey))
-      products.length=0
+function filter (filterItemKey) {
+  const FilterItem = document.getElementById(filterItemKey)
+  FilterItem.addEventListener('click', () => {
+    if (filterItemKey) {
+      const FilteredItem = products.filter(x =>
+        x.keywords.includes(filterItemKey)
+      )
+      products.length = 0
       products.push(...FilteredItem)
-      saveToStorage();
-      loadHTML();
+      saveToStorage()
+      loadHTML()
 
       // const FilterInfo=document.querySelector(".filterInfo");
       // const closeButton=document.querySelector(".closeButton")
       // closeButton.style.display="none"
-    // FilterInfo.innerHTML=filterItemKey+" "
-    //     closeButton.style.display="block"
-        //make the filterinfo carry the filter and when clicked on cross the filter os removed
-    // closeButton.addEventListener("click",()=>{
-    //   FilterInfo.innerHTML=""
-    // })
-  }
+      // FilterInfo.innerHTML=filterItemKey+" "
+      //     closeButton.style.display="block"
+      //make the filterinfo carry the filter and when clicked on cross the filter os removed
+      // closeButton.addEventListener("click",()=>{
+      //   FilterInfo.innerHTML=""
+      // })
+    }
   })
 }
 
 loadHTML()
-addToCart();
-saveToStorage();
+addToCart()
+saveToStorage()
 
-filter("kitchen");
-filter("mens");
-filter("womens");
-filter("accessories");
+filter('kitchen')
+filter('mens')
+filter('womens')
+filter('accessories')
