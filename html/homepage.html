@@ -9,47 +9,56 @@
   </head>
   <body>
     <div class="nav">
-
       <!-- Logo section -->
-       <div class="logo">
+      <div class="logo">
         <a href="../html/homepage.html">
-        <img src="./images/amazon-logo-white.png" alt="">
-      </a>
-       </div>
+          <img src="./images/amazon-logo-white.png" alt="" />
+        </a>
+      </div>
       <!-- Search Bar Section -->
       <div class="search-container">
         <form action="" class="search-bar">
-          <input type="search" name="search" pattern=".*\S.*" required>
+          <input type="search" name="search" pattern=".*\S.*" required />
           <button class="search-btn" type="submit">
             <span>Search</span>
           </button>
-        </form>      
-          
-        </button>
+        </form>
       </div>
 
       <!-- Cart Section (right-aligned) -->
       <div class="cart-container">
         <a href="../html/cartpage.html">
           Cart:
-          <span id="cartQuantity" class="cart-badge">0</span> <!-- Cart quantity displayed -->
+          <span id="cartQuantity" class="cart-badge">0</span>
+          <!-- Cart quantity displayed -->
         </a>
       </div>
     </div>
 
-    <div class="filter">
-     <a href="./homepage.html"> <button id="all" class="filteritem">All</button></a>
-      <button id="mens" class="filteritem">Mens</button>
-      <button id="womens" class="filteritem">Womens</button>
-      <button id="accessories" class="filteritem">Accessories</button>
-      <button id="kitchen" class="filteritem">Kitchen</button>
-      <span class="filterName">Filtered By: <span class="filterInfo"></span> <button class="closeButton">x</button></span>
-    </div>
-    <div class="sortpage">
-      <!-- Sorting options here (e.g., price high to low, etc.) -->
-    </div>
-    <div class="totalHTML">
-      <!-- HTML content dynamically loaded by script.js-->
+    <div class="mainbody">
+      <div class="sidebar">
+        <p>Note: Please click on "All" before filtering any item</p>
+        <div class="filter">
+          <a href="./homepage.html">
+            <button id="all" class="filteritem">All</button></a
+          >
+          <button id="mens" class="filteritem">Mens</button>
+          <button id="womens" class="filteritem">Womens</button>
+          <button id="accessories" class="filteritem">Accessories</button>
+          <button id="kitchen" class="filteritem">Kitchen</button>
+          <!-- <span class="filterName"
+            >Filtered By: <span class="filterInfo"></span>
+            <button class="closeButton">x</button></span
+          > -->
+        </div>
+        <div class="sortpage">
+          <!-- Sorting options here (e.g., price high to low, etc.) -->
+        </div>
+      </div>
+
+      <div class="totalHTML">
+        <!-- HTML content dynamically loaded by script.js-->
+      </div>
     </div>
 
     <script src="script.js" type="module"></script>

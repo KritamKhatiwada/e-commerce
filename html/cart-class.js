@@ -16,19 +16,19 @@ class Cart {
     let cartHTML = ''
     this.cartItems.forEach(x => {
       cartHTML += `<div class="product" data-product-id="${x.id}">
+      <div class="buttons">
       <button class="delete">Delete</button>
+      <button class="update">Update</button>
+      </div>
                   <div class="image">
                   <img class="img" src="${x.image}" alt="Product Image">
                   </div>
                   <div class="content">
                   <div class="productName">${x.name}</div>
                   <p class="price">Price: Rs.${x.priceCents} </p>
-                  <p>Quantity:<span id="quantity" class="quantity"> ${x.quantity}~</span>
-                  <button class="update">update</button></p>
+                  <p>Quantity:<span id="quantity" class="quantity"> ${x.quantity}</span>
                   <div class="reviews">
-                  
-                    <svg width="16" height="16"  fill="yellow"/></svg>
-                    <span>⭐⭐⭐⭐☆</span> <p>(20 reviews)</p>
+                    <span class="stars">⭐⭐⭐⭐☆</span>
                   </div>
                   </div>
                   </div>`

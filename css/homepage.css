@@ -6,16 +6,18 @@
 }
 
 body {
-  width: 98.9vw;
+  width: 100%;
   height: auto;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+}
+.mainbody {
+  display: flex;
 }
 
 .nav {
   top: 0;
   position: sticky;
-  margin: 0;
   background-color: rgb(44, 44, 44);
   height: 10vh;
   display: flex;
@@ -24,6 +26,12 @@ body {
   align-items: center;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(36, 36, 36, 0.1);
+  margin-bottom: 2em;
+}
+.filter {
+  padding: 2em;
+  top: 40px;
+  position: sticky;
 }
 
 .nav a {
@@ -42,7 +50,7 @@ body {
 }
 .search-bar input,
 .search-btn {
-  width: 40em;
+  width: 30em;
   height: 3em;
   background: #fff;
   border-radius: 0.375em 0 0 0.375em;
@@ -52,7 +60,7 @@ body {
 .search-btn {
   background: orange;
   border-radius: 0 0.375em 0.375em 0;
-  width: 100px;
+  width: 10em;
 }
 .search-btn:hover {
   cursor: pointer;
@@ -80,7 +88,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 200px;
+  width: 12em;
   height: 400px;
   text-align: center;
   margin: 0.4em;
@@ -131,7 +139,6 @@ body {
   cursor: pointer;
   background-color: rgb(195, 128, 4);
 }
-
 .filteritem {
   padding: 12px 24px;
   margin: 10px;
@@ -157,4 +164,27 @@ select,
   text-align: center;
   margin: 0 auto;
   display: block;
+}
+@media (max-width: 768px) {
+  .search-btn:hover {
+    cursor: pointer;
+  }
+  .mainbody {
+    flex-direction: column;
+    padding: 1em;
+  }
+  .sortpage {
+    display: none;
+  }
+  .search-bar input {
+    width: 20em;
+  }
+  .search-btn {
+    width: 5em;
+  }
+  .filter {
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: unset;
+  }
 }
