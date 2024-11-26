@@ -20,9 +20,9 @@ class Cart {
       <button class="delete">Delete</button>
       <button class="update">Update</button>
       </div>
-                  <div class="image">
-                  <img class="img" src="${x.image}" alt="Product Image">
-                  </div>
+      <div class="image">
+      <img class="img" src="${x.image}" alt="Product Image">
+      </div>
                   <div class="content">
                   <div class="productName">${x.name}</div>
                   <p class="price">Price: Rs.${x.priceCents} </p>
@@ -72,6 +72,7 @@ class Cart {
         nearProduct.remove()
         this.saveToStorage()
         localStorage.setItem('cart-quantity', this.cartItems.length)
+        this.cartMath1()
       })
     })
   }
@@ -79,10 +80,24 @@ class Cart {
     const updateBTNs = document.querySelectorAll('.update')
     updateBTNs.forEach(x => {
       x.addEventListener('click', e => {
-        console.log('update clicekd')
         window.location.href = './itempage.html'
       })
     })
+  }
+  cartMath1 () {
+    let TotalQuantity = 0
+    let TotalSum = 0
+    let Discount = 50
+    let DeliveryCharge = 250
+    let TotalPayable = 0
+    this.cartItems.forEach(x => {
+      TotalQuantity += x.quantity
+      TotalSum += x.priceCents
+      TotalPayable += TotalSum + DeliveryCharge - Discount
+    })
+    document.getElementById('total-quantity').innerHTML = TotalQuantity
+    document.getElementById('total-sum').innerHTML = TotalSum
+    document.getElementById('total-payable').innerHTML = TotalPayable
   }
 }
 
