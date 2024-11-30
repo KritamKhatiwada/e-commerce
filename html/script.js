@@ -9,7 +9,6 @@ function loadHTML () {
   products.forEach(x => {
     productsHTML += `
     <div class=productParent><div class="products" data-product-id="${x.id}">
-    
     <div class="image">
     <img class="img"src="${x.image}" alt="">
     </div>
@@ -22,7 +21,24 @@ function loadHTML () {
     </div>
     </div>`
   })
+
   document.querySelector('.totalHTML').innerHTML = productsHTML
+  const searchInput = document.getElementById('search')
+  searchInput.addEventListener('input', () => {
+    const productElements = document.querySelectorAll('.products')
+    const query = searchInput.value.toLowerCase()
+    productElements.forEach(x => {
+      const productName = x
+        .querySelector('.productName')
+        .textContent.toLowerCase()
+      console.log(productName)
+      if (productName.includes(query)) {
+        x.style.display = ''
+      } else {
+        x.style.display = 'none'
+      }
+    })
+  })
 }
 
 function addedToCart () {
