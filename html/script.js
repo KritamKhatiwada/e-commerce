@@ -1,8 +1,9 @@
-import { products } from '../html/products.js'
 import { cart } from './cart-class.js'
+import { products } from '../html/products.js'
 
-let productItems = JSON.parse(localStorage.getItem('products'))
-
+document.getElementById('cartQuantity').innerHTML = localStorage.getItem(
+  'cart-quantity'
+)
 function loadHTML () {
   let productsHTML = ''
   products.forEach(x => {
@@ -24,29 +25,15 @@ function loadHTML () {
   document.querySelector('.totalHTML').innerHTML = productsHTML
 }
 
-function saveToStorage () {
-  localStorage.setItem('products', JSON.stringify(productItems))
-}
-
-function addToCart () {
+function addedToCart () {
   const addToCartButtons = document.querySelectorAll('.addtocart')
   addToCartButtons.forEach(btn => {
     btn.addEventListener('click', e => {
       cart.addToCart(e)
-
-      //for cart Quantity
-      const selectElement = e.target
-        .closest('.content')
-        .querySelector('.select')
-      let selectedValue = Number(selectElement.value)
-      cartMath(selectedValue)
+      cart.cartMath1()
+      document.getElementById('cartQuantity').innerHTML = cart.cartMath1()
     })
   })
-}
-let cartQuantity = Number(localStorage.getItem('cart-quantity'))
-function cartMath (x) {
-  cartQuantity += x
-  document.getElementById('cartQuantity').innerHTML = cartQuantity
 }
 
 function filter (filterItemKey) {
@@ -58,25 +45,13 @@ function filter (filterItemKey) {
       )
       products.length = 0
       products.push(...FilteredItem)
-      saveToStorage()
       loadHTML()
-
-      // const FilterInfo=document.querySelector(".filterInfo");
-      // const closeButton=document.querySelector(".closeButton")
-      // closeButton.style.display="none"
-      // FilterInfo.innerHTML=filterItemKey+" "
-      //     closeButton.style.display="block"
-      //make the filterinfo carry the filter and when clicked on cross the filter os removed
-      // closeButton.addEventListener("click",()=>{
-      //   FilterInfo.innerHTML=""
-      // })
     }
   })
 }
 
 loadHTML()
-addToCart()
-saveToStorage()
+addedToCart()
 
 filter('kitchen')
 filter('mens')

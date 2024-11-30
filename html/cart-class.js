@@ -1,16 +1,17 @@
 import { products } from '../html/products.js'
 class Cart {
-  LocalStorageKey
-
-  cartItems = JSON.parse(localStorage.getItem(this.LocalStorageKey)) || [
-    {
-      id: '1',
-      name: 'shoe',
-      image: 'images/products/knit-athletic-sneakers-gray.jpg',
-      priceCents: 1200,
-      quantity: 1
-    }
-  ]
+  constructor (LocalStorageKey) {
+    this.LocalStorageKey = LocalStorageKey
+    this.cartItems = JSON.parse(localStorage.getItem(this.LocalStorageKey)) || [
+      {
+        id: '1',
+        name: 'shoe',
+        image: 'images/products/knit-athletic-sneakers-gray.jpg',
+        priceCents: 1200,
+        quantity: 1
+      }
+    ]
+  }
 
   loadFromStorage () {
     let cartHTML = ''
@@ -71,7 +72,7 @@ class Cart {
         this.cartItems = Filtercart
         nearProduct.remove()
         this.saveToStorage()
-        localStorage.setItem('cart-quantity', this.cartItems.length)
+
         this.cartMath1()
       })
     })
@@ -84,32 +85,47 @@ class Cart {
       })
     })
   }
-  cartMath1 () {
-    let TotalQuantity = 0
+  cartMath1 (TotalQuantity = 0) {
     let TotalSum = 0
     let Discount = 50
     let DeliveryCharge = 250
     let TotalPayable = 0
     this.cartItems.forEach(x => {
-      TotalQuantity += x.quantity
-      TotalSum += x.priceCents
-      TotalPayable += TotalSum + DeliveryCharge - Discount
+      TotalQuantity += Number(x.quantity)
+      TotalSum += Number(x.priceCents * x.quantity)
+      TotalPayable += Number(TotalSum + DeliveryCharge - Discount)
     })
-    document.getElementById('total-quantity').innerHTML = TotalQuantity
-    document.getElementById('total-sum').innerHTML = TotalSum
-    document.getElementById('total-payable').innerHTML = TotalPayable
+
+    const TotalQuantityElement = document.getElementById('total-quantity')
+    const TotalSumElement = document.getElementById('total-sum')
+    const TotalPayableElement = document.getElementById('total-payable')
+    if (TotalSumElement) {
+      TotalSumElement.innerHTML = TotalSum
+    }
+    if (TotalPayableElement) {
+      TotalPayableElement.innerHTML = TotalPayable
+    }
+    if (TotalQuantityElement) {
+      TotalQuantityElement.innerHTML = TotalQuantity
+    }
+    localStorage.setItem('cart-sum', TotalSum)
+    localStorage.setItem('cart-payable', TotalPayable)
+    localStorage.setItem('cart-quantity', TotalQuantity)
+    return TotalQuantity
   }
 }
 
 export const cart = new Cart('cart-oop')
-export const bussinessCart = new Cart('cart-bussiness')
 
+// document.getElementById('total-payable').innerHTML = localStorage.getItem(
+//   'cart-payable'
+// )
+// document.getElementById('total-quantity').innerHTML = localStorage.getItem(
+//   'cart-quantity'
+// )
+// document.getElementById('total-sum').innerHTML = localStorage.getItem(
+//   'cart-sum'
+// )
 cart.loadFromStorage()
 cart.removeFromCart()
 cart.updateCartProduct()
-
-// bussinessCart.loadFromStorage();
-// bussinessCart.removeFromCart();
-
-// console.log(cart);
-// console.log(bussinessCart);
