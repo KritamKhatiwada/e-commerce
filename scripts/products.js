@@ -10,6 +10,7 @@ export const products = [
     priceCents: 1899,
     keywords: ['toaster', 'kitchen', 'appliances']
   },
+
   {
     id: '3ebe75dc-64d2-4137-8860-1f5a963e534b',
     image: '../images/products/6-piece-white-dinner-plate-set.jpg',
