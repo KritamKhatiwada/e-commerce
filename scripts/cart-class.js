@@ -1,4 +1,4 @@
-import { products } from '../html/products.js'
+import { products } from './products.js'
 class Cart {
   constructor (LocalStorageKey) {
     this.LocalStorageKey = LocalStorageKey

@@ -1,5 +1,5 @@
 import { cart } from './cart-class.js'
-import { products } from '../html/products.js'
+import { products } from './products.js'
 
 document.getElementById('cartQuantity').innerHTML = localStorage.getItem(
   'cart-quantity'
