@@ -228,7 +228,7 @@ export const products = [
   },
   {
     id: 'b86ddc8b-3501-4b17-9889-a3bad6fb585f',
-    image: '../mages/products/trash-can-with-foot-pedal-50-liter.jpg',
+    image: '../images/products/trash-can-with-foot-pedal-50-liter.jpg',
     name: 'Trash Can with Foot Pedal - Brushed Stainless Steel',
     rating: {
       stars: 4.5,
